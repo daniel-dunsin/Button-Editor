@@ -28,14 +28,44 @@ export const HomeStyled = styled.main`
     justify-content: center;
     align-items: center;
     gap: 4rem;
-    background: royalblue;
+    background: #01071a;
 
-    padding: 8rem;
-    .button-container {
+    padding: 4rem;
+    .design-container {
+      width: 100%;
       flex: 49%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      max-width: 400px;
+      header {
+        width: 100%;
+        padding: 1rem;
+        background-color: #0e329c;
+        color: white;
+        font-weight: bold;
+      }
+      .button-container {
+        width: 100%;
+        height: 300px;
+        background-color: #1c1c1f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      footer {
+        background-color: #ecebeb;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        article {
+          width: 25px;
+          height: 25px;
+          border: 2px solid transparent;
+          border-radius: 4px;
+          &.chosen {
+            border-color: #0e329c;
+          }
+        }
+      }
     }
   }
   @media (max-width: 900px) {
@@ -45,9 +75,11 @@ export const HomeStyled = styled.main`
     .main-container {
       flex: 1;
       width: 100%;
-      padding: 2rem 8rem;
+      padding: 2rem;
       gap: 2rem;
       flex-direction: column;
+      max-width: 700px;
+      margin: 0 auto;
     }
   }
 `;

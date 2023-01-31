@@ -1,28 +1,44 @@
-import Button from "@/components/Button";
-import CodeContainer from "@/components/Code";
-import Sidebar from "@/components/Sidebar";
+import Button from "@/components/Button/Button";
+import CodeContainer from "@/components/Code/Code";
+import Sidebar from "@/components/Sidebar/Sidebar";
 import { useAppProvider } from "@/context";
+import { colors } from "@/static/colors";
 import { HomeStyled } from "@/styles/Home.styled";
 import Head from "next/head";
 import Image from "next/image";
 
 export default function Home() {
-  const { openNavbar } = useAppProvider();
+  const { styles, updateStyles } = useAppProvider();
   return (
     <>
       <Head>
         <title>Button Editor</title>
       </Head>
       <HomeStyled>
-        <div className="menu" onClick={openNavbar}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
         <Sidebar />
         <section className="main-container">
-          <div className="button-container">
-            <Button />
+          <div className="design-container">
+            <header>Preview</header>
+            <div
+              className="button-container"
+              style={{ background: styles.containerBackground }}
+            >
+              <Button />
+            </div>
+            <footer>
+              {colors.map((color: string, index: number) => (
+                <article
+                  key={index}
+                  onClick={() => {
+                    updateStyles("containerBackground", color);
+                  }}
+                  style={{ background: color }}
+                  className={`${
+                    styles.containerBackground === color && "chosen"
+                  }`}
+                ></article>
+              ))}
+            </footer>
           </div>
           <CodeContainer />
         </section>

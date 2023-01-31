@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const CodeStyled = styled.section`
   flex: 49%;
-  width: 90vw;
-  max-width: 500px;
+  width: 100%;
+  max-width: 400px;
   header {
     width: 100%;
     padding: 1rem;
@@ -17,7 +17,10 @@ export const CodeStyled = styled.section`
     overflow-y: scroll;
   }
   footer {
-    background-color: #ecebeb;
+    background-color: #0e329c;
+    color: white;
+    font-weight: bold;
+    text-align: center;
     padding: 1rem;
   }
 `;

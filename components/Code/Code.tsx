@@ -1,5 +1,5 @@
 import React from "react";
-import { CodeStyled } from "./index.styled";
+import { CodeStyled } from "./Code.styled";
 
 const CodeContainer = () => {
   return (
