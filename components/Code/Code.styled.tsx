@@ -15,6 +15,12 @@ export const CodeStyled = styled.section`
     background-color: #1c1c1f;
     overflow: hidden;
     overflow-y: scroll;
+    padding: 1rem;
+    color: white;
+    font-size: 15px;
+    .css-code {
+      padding-left: 12px;
+    }
   }
   footer {
     background-color: #0e329c;
@@ -22,5 +28,6 @@ export const CodeStyled = styled.section`
     font-weight: bold;
     text-align: center;
     padding: 1rem;
+    cursor: pointer;
   }
 `;

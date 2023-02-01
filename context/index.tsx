@@ -12,21 +12,35 @@ type AppProviderProps = {
 export const AppProvider: FC<AppProviderProps> = ({ children }) => {
   const [styles, setStyles] = useState<IStyles>({
     backgroundColor: "orange",
-    color: "",
-    fontSize: "",
+    color: "white",
+    width: 150,
+    height: 40,
+    fontSize: 16,
     fontWeight: 100,
-    paddingX: 0,
-    paddingY: 0,
-    boderWidth: 0,
-    borderColor: "",
-    borderRadius: 0,
-    boxShadowY: 0,
-    boxShadowSpread: 0,
-    boxShadowX: 0,
-    boxShadowColor: "",
-    buttonText: "",
+    paddingX: 10,
+    paddingY: 10,
+    borderWidth: 2,
+    borderColor: "darkred",
+    borderRadius: 4,
+    boxShadowY: 2,
+    boxShadowSpread: 10,
+    boxShadowX: 2,
+    boxShadowColor: "rgba(0,0,0,.1)",
+    buttonText: "Hello World",
+    buttonClass: "button",
     containerBackground: colors[0],
   });
+
+  const copyToClipboard = async (value: string) => {
+    try {
+      await navigator.clipboard.writeText(value);
+      alert("Code Copied!");
+      /* Resolved - text copied to clipboard successfully */
+    } catch (err) {
+      alert("Failed to copy: " + err);
+      /* Rejected - text failed to copy to the clipboard */
+    }
+  };
 
   const updateStyles = (key: string, value: string | number) => {
     setStyles((prevStyles) => ({
@@ -36,7 +50,7 @@ export const AppProvider: FC<AppProviderProps> = ({ children }) => {
   };
 
   return (
-    <AppContext.Provider value={{ styles, updateStyles }}>
+    <AppContext.Provider value={{ styles, updateStyles, copyToClipboard }}>
       <GlobalStyle />
       {children}
     </AppContext.Provider>
